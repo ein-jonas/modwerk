@@ -38,6 +38,17 @@
       "name": "ev_render_out",
       "when": "exit of the audio render",
       "handler": "void f(void)"
+    },
+    {
+      "name": "ev_pattern_change",
+      "when": "the OS is about to load a new pattern's kit; runs in the UI task before the kit is applied",
+      "handler": "int f(int new_pat, int old_pat); return the kit-source pattern (0..127); default is new_pat. Handlers run from lowest to highest order; each receives the previous handler's return value as new_pat, so the final result is the last nonzero return or new_pat unchanged.",
+      "order": "50 is mid-range; mods that redirect kit loading sit here",
+      "status": "PROPOSED — site addresses not yet found; fill in event-probe.json once located in the stock OS binary. The kit-per-bank module depends on this hook and is held until it ships.",
+      "sites": {
+        "1.53": { "addr": "TBD", "len": 0, "stockSha256": "TBD" },
+        "1.54": { "addr": "TBD", "len": 0, "stockSha256": "TBD" }
+      }
     }
   ],
   "tables": [
