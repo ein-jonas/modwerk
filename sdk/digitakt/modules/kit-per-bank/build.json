@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sources": ["src/glue.s", "src/main.c"],
+  "defsym": {},
+  "cflags": [],
+  "weak": [],
+  "subscribe": [
+    { "event": "ev_settings",       "fn": "kpb_settings",        "order": 50 },
+    { "event": "ev_draw",           "fn": "kpb_draw",            "order": 50 },
+    { "event": "ev_key",            "fn": "kpb_key",             "order": 50 }
+  ],
+  "contribute": [],
+  "collections": {},
+  "copied": [],
+  "regions": [],
+  "claims": ["settings:KIT PER BANK", "key:PTN+YES"],
+  "requires": [],
+  "derive": null,
+  "releases": {
+    "1.53": {
+      "defsym": {},
+      "cflags": [],
+      "sites": []
+    },
+    "1.54": {
+      "defsym": { "OS154": "1" },
+      "cflags": ["-DOS154"],
+      "sites": []
+    }
+  }
+}
