@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 3,
+  "id": "kit-per-bank",
+  "name": "Kit Per Bank",
+  "version": "0.1.0-experimental",
+  "machine": "digitakt",
+  "category": "system",
+  "exclusive": false,
+  "author": { "github": "ein-jonas", "credits": ["ein-jonas"] },
+  "maintainers": ["ein-jonas"],
+  "presentation": {
+    "label": "KIT PER BANK",
+    "family": "Kit management",
+    "summary": "Makes all 16 patterns in a bank share one kit, with per-pattern lock/unlock.",
+    "overview": "With KIT PER BANK on in SETTINGS, every pattern in a bank loads the kit of the bank's first pattern. Hold PTN and press YES on any pattern to lock it to its own kit copy (shows KIT LOCKED) or to share the bank kit again (KIT SHARED). The first pattern of a bank is always the bank kit; PTN+YES shows BANK KIT on it. Lock state resets on reboot.",
+    "highlights": [
+      "16 patterns per bank share one kit — tighten a bank's sound as a unit.",
+      "PTN+YES locks any pattern to its own copy or releases it back to the shared kit.",
+      "Toggle from SETTINGS; existing projects open with the switch off."
+    ],
+    "usage": [
+      "Turn on KIT PER BANK in SETTINGS, then dial in one kit on pattern A01. All A02-A16 load that kit.",
+      "On A03, hold PTN and press YES to give it its own kit — the screen shows KIT LOCKED."
+    ]
+  },
+  "access": {
+    "location": "SETTINGS menu, one row: KIT PER BANK (checkbox).",
+    "steps": [
+      "Press SETTINGS to open the SETTINGS menu.",
+      "Scroll to KIT PER BANK and press YES to toggle it on."
+    ],
+    "screenshots": []
+  },
+  "controls": [
+    {
+      "name": "PTN + YES",
+      "default": null,
+      "doc": "While KIT PER BANK is on: lock the active pattern to its own kit copy (screen shows KIT LOCKED) or release it back to the shared bank kit (KIT SHARED). On the bank's first pattern, shows BANK KIT only — that pattern is always the bank kit.",
+      "labels": null
+    }
+  ],
+  "compatibility": {
+    "releases": ["1.53", "1.54"],
+    "requires": [],
+    "conflicts": [],
+    "limitations": [
+      "Lock state is RAM-only: it resets when the Digitakt is powered off or the mod is uninstalled.",
+      "ev_pattern_change hook is not yet in core 2.1; kit redirect is a stub pending that hook."
+    ]
+  },
+  "platform": {
+    "kind": "elemod",
+    "core": "2.1",
+    "build": "build.json",
+    "events": ["ev_settings", "ev_draw", "ev_key"],
+    "claims": ["settings:KIT PER BANK", "key:PTN+YES"]
+  },
+  "resources": {
+    "memoryBytes": null,
+    "fastBytes": null,
+    "load": {
+      "display": "Not measured yet",
+      "method": "unmeasured",
+      "conditions": "Measure with every track playing, parameters modulated and the mod at its heaviest setting."
+    }
+  },
+  "evidence": {
+    "tier": "none",
+    "moduleVersion": "0.1.0-experimental",
+    "sourceSha256": null,
+    "reports": [],
+    "hardware": null,
+    "verifiedBy": null
+  },
+  "tests": { "report": "TESTING.md", "summary": "Not tested yet." },
+  "license": {
+    "spdx": "GPL-3.0-or-later",
+    "file": "LICENSE",
+    "declaration": "Original work by ein-jonas."
+  },
+  "media": [
+    {
+      "path": "media/thumbnail.svg",
+      "kind": "thumbnail",
+      "caption": "Kit Per Bank thumbnail",
+      "alt": "Placeholder thumbnail for Kit Per Bank",
+      "credit": "ein-jonas",
+      "license": "GPL-3.0-or-later",
+      "source": "Original placeholder from the Modwerk SDK template; replace with your own artwork."
+    }
+  ]
+}
